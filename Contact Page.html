@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Me - Karenzi Audace</title>
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        // Initialize EmailJS with your public key
+        (function () {
+            emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your EmailJS public key
+        })();
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: #0a1628;
+            color: white;
+        }
+
+        .contact-section {
+            min-height: 100vh;
+            padding: 80px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            width: 100%;
+            border: 2px dotted #1e3a5f;
+            padding: 60px;
+            border-radius: 8px;
+        }
+
+        .contact-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .contact-header h2 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .contact-header h2 span {
+            color: #FFC107;
+        }
+
+        .contact-header p {
+            color: #a0aec0;
+            font-size: 14px;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .info-item {
+            display: flex;
+            gap: 10px;
+        }
+
+        .info-label {
+            color: #FFC107;
+            font-weight: 600;
+            min-width: 80px;
+        }
+
+        .info-value {
+            color: #e2e8f0;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-input,
+        .form-textarea {
+            width: 100%;
+            padding: 15px;
+            background-color: #1a2942;
+            border: 1px solid #2d4866;
+            border-radius: 4px;
+            color: white;
+            font-size: 14px;
+            font-family: inherit;
+        }
+
+        .form-input::placeholder,
+        .form-textarea::placeholder {
+            color: #718096;
+        }
+
+        .form-textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-input:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: #FFC107;
+        }
+
+        .submit-btn {
+            background-color: #FFC107;
+            color: #0a1628;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            width: fit-content;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 193, 7, 0.3);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Message Status */
+        .status-message {
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            text-align: center;
+            display: none;
+        }
+
+        .status-message.success {
+            background-color: #10b981;
+            color: white;
+            display: block;
+        }
+
+        .status-message.error {
+            background-color: #ef4444;
+            color: white;
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .contact-container {
+                padding: 40px 20px;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+/*navigation*/
+.navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 60px;
+            background-color: #0a1628;
+            border-bottom: 1px solid #1e3a5f;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .logo span {
+            color: #FFC107;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #FFC107;
+        }
+
+        
+    </style>
+</head>
+
+<body>
+    
+    <nav class="navbar">
+        <div class="logo">Karenzi Audace</div>
+        <ul class="nav-links">
+            <li><a href="#home">HOME</a></li>
+            <li><a href="About Page.html">ABOUT</a></li>
+            <li><a href="#Experiences Page.html">EXPERIENCES</a></li>
+            <li><a href="#Blog Page.html">BLOG</a></li>
+            <li><a href="Contact Page.html">CONTACT</a></li>
+        </ul>
+    </nav>
+    
+    <section class="contact-section">
+        <div class="contact-container">
+            <div class="contact-header">
+                <h2>Contact <span>Me</span></h2>
+                <p>I'd love to hear from you! Fill out the form below and I'll get back to you as soon as possible.</p>
+            </div>
+
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="info-item">
+                        <span class="info-label">Address:</span>
+                        <span class="info-value">Kigali, Rwanda</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Phone:</span>
+                        <span class="info-value">+250 791 363 945</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">E mail:</span>
+                        <span class="info-value">karenzi.audace@gmail.com</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Website:</span>
+                        <span class="info-value">www.karenziaudace.com</span>
+                    </div>
+                </div>
+
+                <div>
+                    <div id="statusMessage" class="status-message"></div>
+
+                    <form id="contactForm" class="contact-form">
+                        <input type="text" id="userName" name="user_name" class="form-input" placeholder="Your Name"
+                            required>
+                        <input type="email" id="userEmail" name="user_email" class="form-input" placeholder="Your Email"
+                            required>
+                        <textarea id="message" name="message" class="form-textarea" placeholder="Your Message"
+                            required></textarea>
+                        <button type="submit" id="submitBtn" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Handle form submission
+        document.getElementById('contactForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const submitBtn = document.getElementById('submitBtn');
+            const statusMessage = document.getElementById('statusMessage');
+
+            // Disable button and show loading
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+            statusMessage.style.display = 'none';
+
+            // Send email using EmailJS
+            emailjs.sendForm('service_yfockn3', 'template_l4x8hmp', this)
+                .then(function (response) {
+                    console.log('SUCCESS!', response.status, response.text);
+
+                    // Show success message
+                    statusMessage.className = 'status-message success';
+                    statusMessage.textContent = '✓ Message sent successfully! I\'ll get back to you soon.';
+                    statusMessage.style.display = 'block';
+
+                    // Reset form
+                    document.getElementById('contactForm').reset();
+
+                    // Re-enable button
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Send Message';
+
+                    // Hide success message after 5 seconds
+                    setTimeout(() => {
+                        statusMessage.style.display = 'none';
+                    }, 5000);
+
+                }, function (error) {
+                    console.log('FAILED...', error);
+
+                    // Show error message
+                    statusMessage.className = 'status-message error';
+                    statusMessage.textContent = '✗ Failed to send message. Please try again or email me directly.';
+                    statusMessage.style.display = 'block';
+
+                    // Re-enable button
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Send Message';
+                });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Karenzi Audace</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: #0a1628;
+            color: white;
+        }
+
+        /* Navigation */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 60px;
+            background-color: #0a1628;
+            border-bottom: 1px solid #1e3a5f;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .logo span {
+            color: #FFC107;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #FFC107;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            min-height: calc(100vh - 80px);
+            padding: 80px 60px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .hero-greeting {
+            color: #FFC107;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .hero-title {
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .hero-description {
+            color: #a0aec0;
+            font-size: 15px;
+            line-height: 1.8;
+            margin-top: 10px;
+        }
+
+        .contact-btn {
+            background-color: #FFC107;
+            color: #0a1628;
+            padding: 15px 35px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            width: fit-content;
+            margin-top: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 193, 7, 0.3);
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 450px;
+            border-radius: 20px;
+            background-color: #cbd5e0;
+        }
+
+        @media (max-width: 968px) {
+            .navbar {
+                padding: 20px 30px;
+            }
+
+            .nav-links {
+                gap: 20px;
+            }
+
+            .hero-section {
+                grid-template-columns: 1fr;
+                padding: 60px 30px;
+                text-align: center;
+            }
+
+            .hero-title {
+                font-size: 36px;
+            }
+
+            .contact-btn {
+                margin: 20px auto 0;
+            }
+
+            .hero-image img {
+                max-width: 350px;
+            }
+        }
+
+        @media (max-width: 568px) {
+            .nav-links {
+                flex-wrap: wrap;
+                gap: 15px;
+                font-size: 12px;
+            }
+
+            .hero-title {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">About<span>Me.</span></div>
+        <ul class="nav-links">
+        <li><a href="#home">HOME</a></li>
+        <li><a href="About Page.html">ABOUT</a></li>
+        <li><a href="#Experiences Page.html">EXPERIENCES</a></li>
+        <li><a href="#Blog Page.html">BLOG</a></li>
+        <li><a href="Contact Page.html">CONTACT</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <p class="hero-greeting">Hello, Welcome</p>
+            <h1 class="hero-title">I am Karenzi Audace</h1>
+            <p class="hero-description">Hi! I'm Karenzi Audace, a passionate Web Developer
+                specializing in creating beautiful and functional websites. With expertise in modern web technologies, I
+                bring ideas to
+                life through clean code and thoughtful design.
+                I love solving problems and building user-friendly experiences that make a difference. Let's create
+                something amazing
+                together!</p>
+            <button class="contact-btn">Download CV</button>
+        </div>
+        <div class="hero-image">
+            <img src="file:///E:/DOWLOADS/me1.jpeg" alt="Karenzi Audace">
+        </div>
+    </section>
+</body>
+
+</html>

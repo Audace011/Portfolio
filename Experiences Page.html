@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Experiences - Karenzi Audace</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: #0a1628;
+            color: white;
+        }
+
+        .experiences-section {
+            min-height: 100vh;
+            padding: 80px 60px;
+        }
+
+        .section-header {
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .section-header h2 span {
+            color: #FFC107;
+        }
+
+        .section-header p {
+            color: #a0aec0;
+            font-size: 14px;
+            line-height: 1.8;
+            max-width: 600px;
+        }
+
+        .experiences-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            max-width: 1400px;
+        }
+
+        .experience-card {
+            background-color: #0f1f35;
+            padding: 40px 30px;
+            border-radius: 8px;
+            border: 1px solid #1e3a5f;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .experience-card:hover {
+            transform: translateY(-5px);
+            border-color: #FFC107;
+        }
+
+        .card-date {
+            color: #718096;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .card-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .card-title span {
+            color: #FFC107;
+        }
+
+        .card-subtitle {
+            color: #a0aec0;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .card-description {
+            color: #718096;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        @media (max-width: 768px) {
+            .experiences-section {
+                padding: 60px 30px;
+            }
+
+            .section-header h2 {
+                font-size: 32px;
+            }
+
+            .experiences-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+.navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 60px;
+            background-color: #0a1628;
+            border-bottom: 1px solid #1e3a5f;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .logo span {
+            color: #FFC107;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #FFC107;
+        }
+
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">Karenzi Audace</div>
+        <ul class="nav-links">
+            <li><a href="#home">HOME</a></li>
+            <li><a href="About Page.html">ABOUT</a></li>
+            <li><a href="#Experiences Page.html">EXPERIENCES</a></li>
+            <li><a href="#Blog Page.html">BLOG</a></li>
+            <li><a href="Contact Page.html">CONTACT</a></li>
+        </ul>
+    </nav>
+    
+    <section class="experiences-section">
+        <div class="section-header">
+            <h2>My <span>Experiences</span></h2>
+            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
+                in some form, by injected humour.</p>
+        </div>
+
+        <div class="experiences-grid">
+            <div class="experience-card">
+                <p class="card-date">June-2002 - 2020</p>
+                <h3 class="card-title"><span>UX/UI</span> Designer</h3>
+                <p class="card-subtitle">Figma</p>
+                <p class="card-description">There are many variations of passages of Lorem Ipsumavailable, but the
+                    majority have suffered alteration in some</p>
+            </div>
+
+            <div class="experience-card">
+                <p class="card-date">June-2002 - 2020</p>
+                <h3 class="card-title"><span>Product</span> Designer</h3>
+                <p class="card-subtitle">Adobe Photoshop</p>
+                <p class="card-description">There are many variations of passages of Lorem Ipsum available, but the
+                    majority have suffered alteration in some</p>
+            </div>
+
+            <div class="experience-card">
+                <p class="card-date">June-2002 - 2020</p>
+                <h3 class="card-title"><span>Graphic</span> Designer</h3>
+                <p class="card-subtitle">Adobe Photoshop</p>
+                <p class="card-description">There are many variations of passages oLorem Ipsumavailable, but the
+                    majority havesuffered alteration in some</p>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
