@@ -1,0 +1,572 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karenzi Audace - Web Developer & Designer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: #0a1628;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 60px;
+            background-color: rgba(10, 22, 40, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #1e3a5f;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .logo span {
+            color: #FFC107;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: #FFC107;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            padding: 120px 60px 80px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .hero-greeting {
+            color: #FFC107;
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+
+        .hero-title {
+            font-size: 56px;
+            font-weight: 800;
+            line-height: 1.2;
+            background: linear-gradient(135deg, #FFC107 0%, #FF6B6B 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 24px;
+            color: #a0aec0;
+            font-weight: 500;
+        }
+
+        .hero-description {
+            color: #cbd5e0;
+            font-size: 16px;
+            line-height: 1.8;
+            margin-top: 10px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .btn-primary {
+            background-color: #FFC107;
+            color: #0a1628;
+            padding: 16px 40px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 193, 7, 0.4);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: white;
+            padding: 16px 40px;
+            border: 2px solid #FFC107;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-secondary:hover {
+            background-color: #FFC107;
+            color: #0a1628;
+        }
+
+        .hero-image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero-image {
+            width: 100%;
+            max-width: 500px;
+            height: 550px;
+            object-fit: cover;
+            border-radius: 20px;
+            border: 3px solid #FFC107;
+            box-shadow: 0 20px 60px rgba(255, 193, 7, 0.3);
+        }
+
+        .floating-badge {
+            position: absolute;
+            background-color: #0f1f35;
+            border: 2px solid #FFC107;
+            border-radius: 12px;
+            padding: 15px 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .badge-top {
+            top: 20px;
+            right: -20px;
+        }
+
+        .badge-bottom {
+            bottom: 20px;
+            left: -20px;
+        }
+
+        .badge-icon {
+            font-size: 24px;
+        }
+
+        .badge-text {
+            font-size: 14px;
+            font-weight: 600;
+            color: #FFC107;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            padding: 60px 60px;
+            background-color: #0f1f35;
+            border-top: 1px solid #1e3a5f;
+            border-bottom: 1px solid #1e3a5f;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: 800;
+            color: #FFC107;
+        }
+
+        .stat-label {
+            font-size: 16px;
+            color: #a0aec0;
+            font-weight: 500;
+        }
+
+        /* Featured Projects Section */
+        .featured-section {
+            padding: 100px 60px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .section-title h2 span {
+            color: #FFC107;
+        }
+
+        .section-title p {
+            color: #a0aec0;
+            font-size: 16px;
+        }
+
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 35px;
+        }
+
+        .featured-card {
+            background-color: #0f1f35;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid #1e3a5f;
+            transition: all 0.3s ease;
+        }
+
+        .featured-card:hover {
+            transform: translateY(-10px);
+            border-color: #FFC107;
+            box-shadow: 0 15px 40px rgba(255, 193, 7, 0.3);
+        }
+
+        .featured-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .featured-content {
+            padding: 30px;
+        }
+
+        .featured-tag {
+            background-color: #FFC107;
+            color: #0a1628;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .featured-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: white;
+        }
+
+        .featured-description {
+            color: #a0aec0;
+            font-size: 15px;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .featured-link {
+            color: #FFC107;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: gap 0.3s ease;
+        }
+
+        .featured-link:hover {
+            gap: 12px;
+        }
+
+        .featured-link::after {
+            content: "→";
+        }
+
+        /* Skills Section */
+        .skills-section {
+            padding: 100px 60px;
+            background-color: #0f1f35;
+            border-top: 1px solid #1e3a5f;
+        }
+
+        .skills-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .skill-card {
+            background-color: #0a1628;
+            border: 2px solid #1e3a5f;
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .skill-card:hover {
+            border-color: #FFC107;
+            transform: translateY(-5px);
+        }
+
+        .skill-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .skill-name {
+            font-size: 18px;
+            font-weight: 600;
+            color: white;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 60px;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .cta-section h2 span {
+            color: #FFC107;
+        }
+
+        .cta-section p {
+            color: #a0aec0;
+            font-size: 18px;
+            margin-bottom: 40px;
+            line-height: 1.7;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #0f1f35;
+            padding: 40px 60px;
+            border-top: 1px solid #1e3a5f;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-text {
+            color: #a0aec0;
+            font-size: 14px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 25px;
+        }
+
+        .social-link {
+            color: white;
+            font-size: 24px;
+            transition: color 0.3s ease;
+        }
+
+        .social-link:hover {
+            color: #FFC107;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .navbar {
+                padding: 20px 30px;
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .hero-section {
+                grid-template-columns: 1fr;
+                padding: 100px 30px 60px;
+                text-align: center;
+            }
+
+            .hero-title {
+                font-size: 42px;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-image {
+                max-width: 400px;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .featured-section,
+            .skills-section,
+            .cta-section {
+                padding: 60px 30px;
+            }
+
+            .featured-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 568px) {
+            .hero-title {
+                font-size: 32px;
+            }
+
+            .hero-subtitle {
+                font-size: 18px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stat-number {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">Karenzi<span>.</span></div>
+        <ul class="nav-links">
+            <li><a href="Home Page.html">HOME</a></li>
+            <li><a href="About Page.html">ABOUT</a></li>
+            <li><a href="Experiences Page.html">EXPERIENCES</a></li>
+            <li><a href="Blog Page.html">BLOG</a></li>
+            <li><a href="Contact Page.html">CONTACT</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-content">
+            <p class="hero-greeting">👋 HELLO, I'M</p>
+            <h1 class="hero-title">Karenzi Audace</h1>
+            <p class="hero-subtitle">Web Developer & Designer</p>
+            <p class="hero-description">
+                I craft beautiful, functional websites and web applications that bring ideas to life. 
+                Specializing in modern web technologies, I turn complex problems into elegant solutions.
+            </p>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn-primary">View My Work</a>
+                <a href="#contact" class="btn-secondary">Get In Touch</a>
+            </div>
+        </div>
+
+        <div class="hero-image-container">
+            <img src="file:///E:/DOWLOADS/me1.jpeg" alt="Karenzi Audace" class="hero-image">
+            <div class="floating-badge badge-top">
+                <span class="badge-text">Available for Work</span>
+            </div>
+            <div class="floating-badge badge-bottom">
+                <span class="badge-text">Based in Rwanda</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number">5+</div>
+                <div class="stat-label">Projects Completed</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">2+</div>
+                <div class="stat-label">Years Experience</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">10+</div>
+                <div class="stat-label">Happy Clients</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Satisfaction Rate</div>
+            </div>
+        </div>
+    </section>
+
