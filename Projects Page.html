@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Karenzi Audace</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: #0a1628;
+            color: white;
+        }
+
+        /* Navigation */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 60px;
+            background-color: #0a1628;
+            border-bottom: 1px solid #1e3a5f;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .logo span {
+            color: #FFC107;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #FFC107;
+        }
+
+        /* Projects Section */
+        .projects-section {
+            padding: 80px 60px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h1 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .section-header h1 span {
+            color: #FFC107;
+        }
+
+        .section-header p {
+            color: #a0aec0;
+            font-size: 16px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .filter-container {
+            margin-bottom: 50px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .filter-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 10px 25px;
+            background-color: #1a2942;
+            border: 1px solid #2d4866;
+            color: white;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background-color: #FFC107;
+            color: #0a1628;
+            border-color: #FFC107;
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 35px;
+        }
+
+        .project-card {
+            background-color: #0f1f35;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #1e3a5f;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: #FFC107;
+            box-shadow: 0 10px 30px rgba(255, 193, 7, 0.2);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            background: linear-gradient(135deg, #1e3a5f 0%, #2d4866 100%);
+            position: relative;
+        }
+
+        .project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 22, 40, 0.85);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
+
+        .overlay-btn {
+            padding: 10px 20px;
+            background-color: #FFC107;
+            color: #0a1628;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: transform 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .overlay-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .project-tags {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .project-tag {
+            background-color: #1a2942;
+            color: #FFC107;
+            padding: 5px 12px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+            border: 1px solid #2d4866;
+        }
+
+        .project-title {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: white;
+        }
+
+        .project-description {
+            color: #a0aec0;
+            font-size: 14px;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .project-role {
+            color: #718096;
+            font-size: 13px;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 12px;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: #FFC107;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            transition: gap 0.3s ease;
+        }
+
+        .project-link:hover {
+            gap: 10px;
+        }
+
+        /* No Results Message */
+        .no-results {
+            text-align: center;
+            padding: 60px 20px;
+            color: #718096;
+            font-size: 18px;
+            display: none;
+        }
+
+        .no-results.show {
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 20px 30px;
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .nav-links {
+                gap: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .projects-section {
+                padding: 60px 30px;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-header h1 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">Karenzi Audace</div>
+        <ul class="nav-links">
+            <li><a href="#home">HOME</a></li>
+            <li><a href="About Page.html">ABOUT</a></li>
+            <li><a href="#Experiences Page.html">EXPERIENCES</a></li>
+            <li><a href="#Blog Page.html">BLOG</a></li>
+            <li><a href="Contact Page.html">CONTACT</a></li>
+        </ul>
+    </nav>
+
+    <!-- Projects Section -->
+    <section class="projects-section">
+        <div class="section-header">
+            <h1>My <span>Projects</span></h1>
+            <p>A collection of my work showcasing web development, design, and problem-solving skills</p>
+        </div>
+
+        <!-- Category Filter -->
+        <div class="filter-container">
+            <div class="filter-tabs">
+                <button class="filter-btn" data-category="all">All Projects</button>
+                <button class="filter-btn" data-category="web-app">Web Apps</button>
+                <button class="filter-btn" data-category="website">Websites</button>
+                <button class="filter-btn" data-category="ecommerce">E-Commerce</button>
+                <button class="filter-btn" data-category="design">UI/UX Design</button>
+            </div>
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="projects-grid" id="projectsGrid">
+            
+
+            <!-- Project 3 -->
+            <article class="project-card" data-category="website" data-tech="html-css javascript" data-role="frontend">
+                <div class="project-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                    <div class="project-overlay">
+                        <a href="#" class="overlay-btn">🔗 Live Site</a>
+                        <a href="#" class="overlay-btn">💻 GitHub</a>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <div class="project-tags">
+                        <span class="project-tag">HTML</span>
+                        <span class="project-tag">CSS</span>
+                        <span class="project-tag">JavaScript</span>
+                    </div>
+                    <h2 class="project-title">Modern Portfolio Website</h2>
+                    <p class="project-role">Role: Frontend Developer & Designer</p>
+                    <p class="project-description">A clean, responsive portfolio showcasing projects with smooth
+                        animations, dark mode toggle, and contact form integration.</p>
+                    <div class="project-links">
+                        <a href="#" class="project-link">View Live →</a>
+                        <a href="#" class="project-link">GitHub →</a>
+                    </div>
+                </div>
+            </article>
+
+            
+
+            
+
+            <!-- Project 6 -->
+            <article class="project-card" data-category="website" data-tech="html-css javascript" data-role="frontend">
+                <div class="project-image" style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);">
+                    <div class="project-overlay">
+                        <a href="#" class="overlay-btn">🔗 Live Site</a>
+                        <a href="#" class="overlay-btn">💻 GitHub</a>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <div class="project-tags">
+                        <span class="project-tag">HTML</span>
+                        <span class="project-tag">CSS Grid</span>
+                        <span class="project-tag">Responsive</span>
+                    </div>
+                    <h2 class="project-title">Restaurant Landing Page</h2>
+                    <p class="project-role">Role: Frontend Developer</p>
+                    <p class="project-description">Beautiful landing page for a restaurant with menu showcase, online
+                        reservation system, and interactive photo gallery.</p>
+                    <div class="project-links">
+                        <a href="#" class="project-link">View Live →</a>
+                        <a href="#" class="project-link">GitHub →</a>
+                    </div>
+                </div>
+            </article>
+        </div>
+
+        <!-- No Results Message -->
+        <div class="no-results" id="noResults">
+            No projects found with the selected filters. Try a different combination!
+        </div>
+    </section>
+
+    <script>
+        // Simple category filter
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+        const noResults = document.getElementById('noResults');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+
+                // Add active class to clicked button
+                button.classList.add('active');
+
+                const category = button.getAttribute('data-category');
+                let visibleCount = 0;
+
+                // Show/hide projects based on category
+                projectCards.forEach(card => {
+                    const cardCategory = card.getAttribute('data-category');
+
+                    if (category === 'all' || cardCategory === category) {
+                        card.style.display = 'block';
+                        visibleCount++;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                // Show/hide no results message
+                if (visibleCount === 0) {
+                    noResults.classList.add('show');
+                } else {
+                    noResults.classList.remove('show');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
